@@ -7,7 +7,7 @@
 
     <title>Inscripción a programas de Posgrado | INAOE</title>
 
-    <!-- Framework GOB.MXm-->
+    
     <link href="https://framework-gb.cdn.gob.mx/assets/styles/main.css" rel="stylesheet">
 
     <style>
@@ -106,9 +106,43 @@
 
         <div class="row">
 
-  
+  <form role="form">
+  <div class="form-group">
+    <label class="control-label" for="email-01">Correo electrónico:</label>
+    <input class="form-control" id="email-01" placeholder="Correo electrónico" type="text">
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="password-01">Contraseña</label>
+    <input class="form-control" id="password-01" placeholder="Contraseña" type="password">
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="file-01">Cargar archivo:</label>
+    <input id="file-01" type="file">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Acepto los términos
+    </label>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <button class="btn btn-primary pull-right" type="submit">Enviar</button>
+</form>
 
-<script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="email-02">Correo electrónico:</label>
+    <input class="form-control" id="email-02" placeholder="Ingrese su email" type="text">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="password-02">Contraseña</label>
+    <input class="form-control" id="password-02" placeholder="Ingrese su contraseña" type="password">
+  </div>
+  <div class="checkbox">
+
+<script src="js/gobmx1.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>INAOE</title>
+
+    <link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/grafica-ejemplo.css">
+    <link rel="stylesheet" type="text/css" href="../css/validadorAGC.css"/>
+
+    <style>
+        .ece{
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<main class="page">
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li>
+                <a href="https://www.gob.mx/">
+                    <span class="icon-home" aria-hidden="true"></span>
+                </a>
+            </li>
+            <li><a href="#Inicio">Inicio</a></li>
+            <li class="active">Inscripción a programas de Posgrado</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Solicitud de admisión a posgrados del INAOE</h1>
+            </div>
+        </div>
+
+        <form class="ns_" role="form" name="Solicitud" id="Solicitud">
+
+            <a name="Inicio" id="Inicio"></a>
+
+            <h2>Datos generales del aspirante</h2>
+            <hr class="red">
+
+            <div class="row">
+                <div class="form-group col-sm-8">
+                    <label>Nacionalidad:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" checked> Mexicana
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Otra (Extranjera)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-8">
+                    <label>Clave Única de Registro de Población (CURP):</label>
+                    <input type="text" class="form-control" placeholder="Ingresa tu CURP">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Nombre(s):</label>
+                    <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Primer apellido:</label>
+                    <input type="text" class="form-control" placeholder="Ingresa tu primer apellido">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Segundo apellido:</label>
+                    <input type="text" class="form-control" placeholder="Ingresa tu segundo apellido">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Sexo:</label>
+                    <select class="form-control">
+                        <option selected>Selecciona</option>
+                        <option>Hombre</option>
+                        <option>Mujer</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-4 datepicker-group">
+                    <label>Fecha de nacimiento:</label>
+                    <div style="position: relative;">
+                        <input type="text" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento">
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; z-index: 2;"></span>
+                    </div>
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Lugar de nacimiento:</label>
+                    <input type="text" class="form-control" placeholder="Lugar de nacimiento">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Lada:</label>
+                    <input type="text" class="form-control" placeholder="Lada">
+                </div>
+                <div class="col-sm-4">
+                    <label>Teléfono fijo:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono fijo">
+                </div>
+                <div class="col-sm-2">
+                    <label>Ext.:</label>
+                    <input type="text" class="form-control" placeholder="Ext">
+                </div>
+                <div class="col-sm-4">
+                    <label>Teléfono móvil:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono móvil">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label>Correo electrónico:</label>
+                    <input type="text" class="form-control" placeholder="ejemplo@dominio.com">
+                </div>
+            </div>
+            
+            <h2>Domicilio</h2>
+            <hr class="red">
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Código Postal:</label>
+                    <input type="text" class="form-control" placeholder="Código Postal">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Estado:</label>
+                    <input type="text" class="form-control" placeholder="Estado">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Municipio o Alcaldía:</label>
+                    <input type="text" class="form-control" placeholder="Municipio o Alcaldía">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Localidad:</label>
+                    <input type="text" class="form-control" placeholder="Localidad">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Colonia:</label>
+                    <input type="text" class="form-control" placeholder="Colonia">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Tipo de calle:</label>
+                    <input type="text" class="form-control" placeholder="Tipo de calle">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Calle:</label>
+                    <input type="text" class="form-control" placeholder="Calle">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Número exterior*:</label>
+                    <input type="text" class="form-control" placeholder="Número exterior">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Número interior*:</label>
+                    <input type="text" class="form-control" placeholder="Número interior">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>País:</label>
+                    <input type="text" class="form-control" placeholder="País">
+                </div>
+            </div>
+
+            <h2>Datos de la persona a contactar en caso de emergencia del aspirante</h2>
+            <hr class="red">
+
+            <div class="row">
+                <div class="col-sm-2 form-group">
+                    <label>Lada:</label>
+                    <input type="text" class="form-control" placeholder="Lada">
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label>Teléfono fijo:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono fijo">
+                </div>
+                <div class="col-sm-2 form-group">
+                    <label>Ext.:</label>
+                    <input type="text" class="form-control" placeholder="Ext">
+                </div>
+                <div class="col-sm-4 form-group">
+                    <label>Teléfono móvil:</label>
+                    <input type="text" class="form-control" placeholder="Teléfono móvil">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label>Parentesco:</label>
+                    <input type="text" class="form-control" placeholder="Parentesco">
+                </div>
+            </div>
+
+            <h2>Datos académicos del aspirante</h2>
+            <hr class="red">
+
+            <div class="row">
+                <div class="form-group col-sm-8">
+                    <label>Posgrado a ingresar:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Maestría
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Doctorado
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Año de ingreso al posgrado:</label>
+                    <input type="text" class="form-control" placeholder="Año de ingreso">
+                </div>
+                <div class="form-group col-sm-8">
+                    <label>Periodo de ingreso al posgrado*:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Agosto-Diciembre
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Datos de estudio previos</h3>
+            <hr class="red">
+            
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Nombre de la institución educativa*: </label>
+                    <input type="text" class="form-control" placeholder="Nombre de la institución educativa">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Nombre del grado académico que obtuviste*:</label>
+                    <input type="text" class="form-control" placeholder="Nombre del grado académico">
+                </div>
+                <div class="form-group col-sm-4">
+                    <label>Año de obtención del grado*:</label>
+                    <input type="text" class="form-control" placeholder="Año de obtención del grado">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-4">
+                    <label>Promedio obtenido*:</label>
+                    <input type="text" class="form-control" placeholder="Promedio obtenido">
+                </div>
+                <div class="form-group col-sm-8">
+                    <label>Selecciona tu tipo de titulación*:</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" checked> Tesis
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Estudios de Maestría 
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio"> Otro
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Dominio del idioma inglés</h2>
+            <hr class="red">
+
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Habilidad</th>
+                        <th>Nivel básico</th>
+                        <th>Nivel intermedio</th>
+                        <th>Nivel avanzado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Expresión escrita</td>
+                        <td><input type="radio" name="ingles1"></td>
+                        <td><input type="radio" name="ingles1"></td>
+                        <td><input type="radio" name="ingles1"></td>
+                    </tr>
+                    <tr>
+                        <td>Expresión oral</td>
+                        <td><input type="radio" name="ingles2"></td>
+                        <td><input type="radio" name="ingles2"></td>
+                        <td><input type="radio" name="ingles2"></td>
+                    </tr>
+                    <tr>
+                        <td>Comprensión lectora</td>
+                        <td><input type="radio" name="ingles3"></td>
+                        <td><input type="radio" name="ingles3"></td>
+                        <td><input type="radio" name="ingles3"></td>
+                    </tr>
+                    <tr>
+                        <td>Comprensión auditiva</td>
+                        <td><input type="radio" name="ingles3"></td>
+                        <td><input type="radio" name="ingles3"></td>
+                        <td><input type="radio" name="ingles3"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Experiencia laboral</h2>
+            <hr class="red">
+
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th>Nombre de la institución o empresa</th>
+                        <th>Tipo de experiencia</th>
+                        <th>Puesto y funciones</th>
+                        <th>Tiempo laborado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Nombre de la institución"></td>
+                        <td>
+                            <select class="form-control">
+                                <option selected>Selecciona</option>
+                                <option>Profesional</option>
+                                <option>Docente</option>
+                                <option>Otro</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Puesto y funciones"></td>
+                        <td><input type="text" class="form-control" placeholder="Tiempo laborado"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover table-responsive">
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Nombre de la institución"></td>
+                        <td>
+                            <select class="form-control">
+                                <option selected>Selecciona</option>
+                                <option>Profesional</option>
+                                <option>Docente</option>
+                                <option>Otro</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Puesto y funciones"></td>
+                        <td><input type="text" class="form-control" placeholder="Tiempo laborado"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-hover table-responsive">
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Nombre de la institución"></td>
+                        <td>
+                            <select class="form-control">
+                                <option selected>Selecciona</option>
+                                <option>Profesional</option>
+                                <option>Docente</option>
+                                <option>Otro</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Puesto y funciones"></td>
+                        <td><input type="text" class="form-control" placeholder="Tiempo laborado"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Publicaciones científicas</h2>
+            <hr class="red">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" placeholder="Título">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Descripción:</label>
+                        <textarea rows="1" class="form-control" placeholder="Descripción"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" placeholder="Título">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Descripción:</label>
+                        <textarea rows="1" class="form-control" placeholder="Descripción"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Título:</label>
+                        <input type="text" class="form-control" placeholder="Título">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Descripción:</label>
+                        <textarea rows="1" class="form-control" placeholder="Descripción"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-12">
+                    <label>Razón por la que deseas estudiar un posgrado en el INAOE:</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-sm-8">
+                    <label>Medio por el cual te enteraste de los posgrados que ofrece el INAOE*:</label>
+                    <div class="radio">
+                        <label><input type="radio" checked> Feria de posgrados</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio"> Página de internet</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio"> Amigo</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio"> Otro</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    *Campos obligatorios
+                </div>
+                <div class="col-sm-8 form-group">
+                    <button type="button" class="btn btn-primary pull-right">Enviar</button>
+                </div>
+            </div>
+
+        </form>
+
+        <p>&nbsp;</p>
+        <hr>
+
+        <div class="alert alert-info">
+            <p><strong>Aviso de privacidad simplificado – INAOE</strong></p>
+            <p>El Instituto Nacional de Astrofísica, Óptica y Electrónica (INAOE) con domicilio en calle Luis Enrique Erro # 1, Santa María Tonantzintla, Municipio de San Andrés Cholula, Puebla, C.P. 72840, en base a los artículos 26 y 27 de acuerdo a la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados, hace de su conocimiento que: los datos personales (nombre, domicilio, información de contacto, rasgos físicos como huellas dactilares, fotografías) recabados por la Institución para el trámite de algún servicio relacionado con la gestión académica e institucional serán protegidos bajo la ley antes mencionada y fundamentada en los artículos 6o., Base A y 16, segundo párrafo, de la Constitución Política de los Estados Unidos Mexicanos, en materia de protección de datos personales en posesión de sujetos obligados.</p>
+            <p>Así mismo, se informa que el INAOE podrá transferir los datos proporcionados estrictamente en el ámbito académico o para el trámite de algún servicio relacionado con la gestión académica e institucional, así como cuando se requiera para la asistencia médica.</p>
+            <p>Se precisa que los mechanisms y medios disponibles para manifestar su negativa para el tratamiento de sus datos personales deberán ser enviados al correo electrónico grivera@inaoep.mx adjuntando la solicitud de derechos ARCO (Acceso, Rectificación, Cancelación y Oposición) y un escrito libre y debidamente firmado, en donde justifique el ejercicio de los derechos ARCO y deberánir acompañados de una copia de identificación oficial (credencial para votar, licencia de conducir, pasaporte).</p>
+            <p>Finalmente comunica que este documento podrá ser modificado en cualquier momento por el Instituto, notificándose el cambio a través de correo electrónico.</p>
+            <p>Si necesitas mayor información por favor escribe a <a href="mailto:grivera@inaoep.mx">grivera@inaoep.mx</a></p>
+            <p><strong>Documentos de interés</strong>: <a href="https://www.inaoep.mx/archivos/AvisoIntegral.pdf" target="_blank">Aviso de privacidad integral - INAOE</a></p>
+        </div>
+
+    </div>
+</main>
+
+<script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+</body>
+</html>
+

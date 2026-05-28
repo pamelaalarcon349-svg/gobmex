@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>INAOE</title>
+
+<link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+<link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css">
+<link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/grafica-ejemplo.css">
+<link rel="stylesheet" type="text/css" href="../css/validadorAGC.css"/>
+
+<style>
+.ece{
+	display:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<main class="page">
+<div class="container">
+
+<ol class="breadcrumb">
+    <li>
+        <a href="https://www.gob.mx/">
+            <span class="icon-home" aria-hidden="true"></span>
+        </a>
+    </li>
+    <li><a href="#Inicio">Inicio</a></li>
+    <li class="active">Inscripción a programas de Posgrado</li>
+</ol>
+
+<div class="row">
+	<div class="col-sm-8">
+	  <h1>Solicitud de admisión a posgrados del INAOE</h1>
+	</div>
+</div>
+
+<!-- FORMULARIO SIN FUNCIONALIDAD -->
+<form class="ns_" role="form" name="Solicitud" id="Solicitud">
+
+<a name="Inicio" id="Inicio"></a>
+
+<h2>Datos generales del aspirante</h2>
+<hr class="red">
+
+<div class="row">
+    <div class="form-group col-sm-8">
+        <label>Nacionalidad:</label>
+
+        <div class="radio">
+            <label>
+                <input type="radio" checked>
+                Mexicana
+            </label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input type="radio">
+                Otra (Extranjera)
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-8">
+        <label>CURP:</label>
+        <input type="text" class="form-control" placeholder="Ingresa tu CURP">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-4">
+        <label>Nombre(s):</label>
+        <input type="text" class="form-control" placeholder="Ingresa tu nombre">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Primer apellido:</label>
+        <input type="text" class="form-control" placeholder="Ingresa tu primer apellido">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Segundo apellido:</label>
+        <input type="text" class="form-control" placeholder="Ingresa tu segundo apellido">
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="form-group col-sm-4">
+        <label>Sexo:</label>
+
+        <select class="form-control">
+            <option selected>Selecciona</option>
+            <option>Hombre</option>
+            <option>Mujer</option>
+        </select>
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Fecha de nacimiento:</label>
+        <input type="text" class="form-control" placeholder="Fecha de nacimiento">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Lugar de nacimiento:</label>
+        <input type="text" class="form-control" placeholder="Lugar de nacimiento">
+    </div>
+
+</div>
+
+<h2>Domicilio</h2>
+<hr class="red">
+
+<div class="row">
+    <div class="form-group col-sm-4">
+        <label>Código Postal:</label>
+        <input type="text" class="form-control" placeholder="Código Postal">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Estado:</label>
+        <input type="text" class="form-control" placeholder="Estado">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Municipio o Alcaldía:</label>
+        <input type="text" class="form-control" placeholder="Municipio o Alcaldía">
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="form-group col-sm-4">
+        <label>Colonia:</label>
+        <input type="text" class="form-control" placeholder="Colonia">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>Calle:</label>
+        <input type="text" class="form-control" placeholder="Calle">
+    </div>
+
+    <div class="form-group col-sm-4">
+        <label>País:</label>
+        <input type="text" class="form-control" placeholder="País">
+    </div>
+
+</div>
+
+<h2>Datos académicos del aspirante</h2>
+<hr class="red">
+
+<div class="row">
+
+    <div class="form-group col-sm-8">
+
+        <label>Posgrado a ingresar:</label>
+
+        <div class="radio">
+            <label>
+                <input type="radio">
+                Maestría
+            </label>
+        </div>
+
+        <div class="radio">
+            <label>
+                <input type="radio">
+                Doctorado
+            </label>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="form-group col-sm-4">
+        <label>Año de ingreso al posgrado:</label>
+        <input type="text" class="form-control" placeholder="Año de ingreso">
+    </div>
+
+</div>
+
+<h3>Datos de estudio previos</h3>
+<hr class="red">
+<div class="row">
+
+    <div class="form-group col-sm-4">
+        <label>nombre de la institucion educativa:</label>
+        <input type="text" class="form-control" placeholder="Año de ingreso">
+    </div>
+
+</div>
+
+<h2>Dominio del idioma inglés</h2>
+<hr class="red">
+
+<table class="table table-hover table-responsive">
+
+<thead>
+<tr>
+    <th>Habilidad</th>
+    <th>Nivel básico</th>
+    <th>Nivel intermedio</th>
+    <th>Nivel avanzado</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+    <td>Expresión escrita</td>
+
+    <td><input type="radio" name="ingles1"></td>
+    <td><input type="radio" name="ingles1"></td>
+    <td><input type="radio" name="ingles1"></td>
+</tr>
+
+<tr>
+    <td>Expresión oral</td>
+
+    <td><input type="radio" name="ingles2"></td>
+    <td><input type="radio" name="ingles2"></td>
+    <td><input type="radio" name="ingles2"></td>
+</tr>
+
+<tr>
+    <td>Comprensión lectora</td>
+
+    <td><input type="radio" name="ingles3"></td>
+    <td><input type="radio" name="ingles3"></td>
+    <td><input type="radio" name="ingles3"></td>
+</tr>
+<tr>
+    <td>Comprensión auditiva</td>
+
+    <td><input type="radio" name="ingles3"></td>
+    <td><input type="radio" name="ingles3"></td>
+    <td><input type="radio" name="ingles3"></td>
+</tr>
+</tbody>
+
+</table>
+
+<h2>Experiencia laboral</h2>
+<hr class="red">
+
+<table class="table table-hover table-responsive">
+
+<thead>
+<tr>
+    <th>Institución o empresa</th>
+    <th>Tipo de experiencia</th>
+    <th>Puesto y funciones</th>
+    <th>Tiempo laborado</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+    <input type="text" class="form-control" placeholder="Institución o empresa">
+</td>
+
+<td>
+    <select class="form-control">
+        <option selected>Selecciona</option>
+        <option>Profesional</option>
+        <option>Docente</option>
+        <option>Otro</option>
+    </select>
+</td>
+
+<td>
+    <input type="text" class="form-control" placeholder="Puesto y funciones">
+</td>
+
+<td>
+    <input type="text" class="form-control" placeholder="Tiempo laborado">
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<h2>Publicaciones científicas</h2>
+<hr class="red">
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Título:</label>
+            <input type="text" class="form-control" placeholder="Título">
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="form-group">
+            <label>Descripción:</label>
+            <textarea rows="1" class="form-control" placeholder="Descripción"></textarea>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="form-group col-sm-8">
+        <label>Razón por la que deseas estudiar un posgrado en el INAOE:</label>
+
+        <textarea class="form-control"></textarea>
+    </div>
+
+</div>
+
+<div class="row">
+
+<div class="col-sm-4">
+    *Campos obligatorios
+</div>
+
+<div class="col-sm-8 form-group">
+ 
+    <button type="button" class="btn btn-primary pull-right">
+        Enviar
+    </button>
+</div>
+
+</div>
+
+</form>
+
+<p>&nbsp;</p>
+
+<hr>
+
+<div class="alert alert-info">
+
+<p><strong>Aviso de privacidad simplificado – INAOE</strong></p>
+
+<p>
+El Instituto Nacional de Astrofísica, Óptica y Electrónica (INAOE)
+con domicilio en calle Luis Enrique Erro # 1, Santa María Tonantzintla,
+Municipio de San Andrés Cholula, Puebla, C.P. 72840...
+</p>
+
+<p>
+Si necesitas mayor información por favor escribe a
+<a href="mailto:grivera@inaoep.mx">grivera@inaoep.mx</a>
+</p>
+
+<p>
+<strong>Documentos de interés</strong>:
+<a href="https://www.inaoep.mx/archivos/AvisoIntegral.pdf" target="_blank">
+Aviso de privacidad integral - INAOE
+</a>
+</p>
+
+</div>
+
+</div>
+</main>
+
+<script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+
+</body>
+</html>

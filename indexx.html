@@ -4,6 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>INAOE</title>
 
+    <!--Enlaces a CSS
+     rel="stylesheet"	Relación: es una hoja de estilos
+     type="text/css"	Tipo de contenido: CSS
+     href="..."	        La ubicación del archivo CSS
+    -->
     <link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css">
     <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/grafica-ejemplo.css">
@@ -34,8 +39,8 @@
 </head>
 
 <body>
-
-<main class="page">
+    <!-- Main se usa para definir el contenido principal  y la clase "page" proviene del CDN, se encarga de los estilos visuales y el comportamiento del diseño en la pantalla -->
+<main class="page"> 
     <div class="container">
 
         <ol class="breadcrumb">
@@ -82,6 +87,7 @@
                     <label>Clave Única de Registro de Población (CURP):</label>
                     <input type="text" class="form-control mayus-auto" placeholder="Ingresa tu CURP">
                 </div>
+                <p>¿No sabes tu CURP? ingresa <a href="https://www.gob.mx/curp/">Aquí</a></p>
             </div>
 
             <div class="row">
@@ -110,11 +116,11 @@
                 </div>
                 
                 <div class="form-group col-sm-4 datepicker-group">
-                    <label>Fecha de nacimiento:</label>
-                    <div style="position: relative;">
-                        <input type="text" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; z-index: 2;"></span>
-                    </div>
+                      <div class="form-group datepicker-group">
+    <label class="control-label" for="calendar">Fecha de nacimiento</label>
+    <input class="form-control" id="calendar" type="text">
+    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+  </div>
                 </div>
                 <div class="form-group col-sm-4">
                     <label>Lugar de nacimiento:</label>
@@ -126,7 +132,7 @@
                 <div class="col-sm-2">
                     <label>Lada:</label>
                     <select class="lada-select" id="ladaPrincipal">
-                        <option value="">Selecciona un país</option>
+                        <option selected>Selecciona</option>
                         <option value="+93">Afganistán (+93)</option>
                         <option value="+355">Albania (+355)</option>
                         <option value="+49">Alemania (+49)</option>

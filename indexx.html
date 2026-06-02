@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--sive para adaptarse a laps, cels, y tables -->
     <title>INAOE</title>
 
     <!--Enlaces a CSS
@@ -9,8 +10,9 @@
      type="text/css"	Tipo de contenido: CSS
      href="..."	        La ubicación del archivo CSS
     -->
-    <link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+    <link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico"> <!--La etiqueta link conecta el archivo con recursos externos -->
     <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css">
+    
     <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/grafica-ejemplo.css">
     <link rel="stylesheet" type="text/css" href="../css/validadorAGC.css"/>
 
@@ -43,13 +45,13 @@
 <main class="page"> 
     <div class="container">
 
-        <ol class="breadcrumb">
+        <ol class="breadcrumb"> <!--ol es para hacer listas ordenadas-->
             <li>
                 <a href="https://www.gob.mx/">
-                    <span class="icon-home" aria-hidden="true"></span>
+                    <span class="icon-home" aria-hidden="true"></span> <!--Se span usa para alinear elementos dentro de un párrafo con el fin de aplicarles estilos css-->
                 </a>
             </li>
-            <li><a href="#Inicio">Inicio</a></li>
+            <li><a href="#Inicio">Inicio</a></li> <!--Aquí el # indica que es una dirección a donde va a saltar la página cuando se de clic, y va a buacar una secciión que -->
             <li class="active">Inscripción a programas de Posgrado</li>
         </ol>
 
@@ -59,12 +61,14 @@
             </div>
         </div>
 
-        <form class="ns_" role="form" name="Solicitud" id="Solicitud">
+        <form role="form">
 
-            <a name="Inicio" id="Inicio"></a>
+            <section id="Inicio">
+
+            </section>
 
             <h2>Datos generales del aspirante</h2>
-            <hr class="red">
+            <hr class="red"> <!--Es una linea horizontal -->
 
             <div class="row">
                 <div class="form-group col-sm-8">
@@ -87,8 +91,9 @@
                     <label>Clave Única de Registro de Población (CURP):</label>
                     <input type="text" class="form-control mayus-auto" placeholder="Ingresa tu CURP">
                 </div>
-                <p>¿No sabes tu CURP? ingresa <a href="https://www.gob.mx/curp/">Aquí</a></p>
             </div>
+                <p>¿No sabes tu CURP? ingresa <a href="https://www.gob.mx/curp/">Aquí</a></p>
+            <hr>
 
             <div class="row">
                 <div class="form-group col-sm-4">
@@ -117,10 +122,10 @@
                 
                 <div class="form-group col-sm-4 datepicker-group">
                       <div class="form-group datepicker-group">
-    <label class="control-label" for="calendar">Fecha de nacimiento</label>
-    <input class="form-control" id="calendar" type="text">
-    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-  </div>
+                      <label class="control-label" for="calendar">Fecha de nacimiento</label>
+                      <input class="form-control" id="calendar" type="text">
+                      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                      </div>
                 </div>
                 <div class="form-group col-sm-4">
                     <label>Lugar de nacimiento:</label>
@@ -436,13 +441,8 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
             <h2>Contacto de emergencia </h2>
             <p>(sera el contacto de emergencia en caso de que algo suceda con el aspirante)</p>
-=======
-            <h2>Contacto de emergencia</h2>
-            <p>(Este será el contacto de emergencia en caso de que algo suceda con el aspirante)</p>
->>>>>>> origin/main
             <hr class="red">
 
             <div class="row">
@@ -725,7 +725,7 @@
             <div class="row">
                 <div class="form-group col-sm-4">
                     <label>Año de ingreso al posgrado:</label>
-                    <input type="text" class="form-control" placeholder="Año de ingreso">
+                    <input type="text" class="form-control" placeholder="Año de ingreso al posgrado">
                 </div>
                 <div class="form-group col-sm-8">
                     <label>Periodo de ingreso al posgrado*:</label>
@@ -737,48 +737,69 @@
                 </div>
             </div>
 
-            <h3>Datos de estudio previos</h3>
-            <hr class="red">
-            
-            <div class="row">
-                <div class="form-group col-sm-4">
-                    <label>Nombre de la institución educativa*: </label>
-                    <input type="text" class="form-control mayus-auto" placeholder="Nombre de la institución educativa">
-                </div>
-                <div class="form-group col-sm-4">
-                    <label>Nombre del grado académico que obtuviste*:</label>
-                    <input type="text" class="form-control mayus-auto" placeholder="Nombre del grado académico">
-                </div>
-                <div class="form-group col-sm-4">
-                    <label>Año de obtención del grado*:</label>
-                    <input type="text" class="form-control" placeholder="Año de obtención del grado">
-                </div>
-            </div>
+         <h3>Datos de estudio previos</h3>
+                <hr class="red">
 
-            <div class="row">
-                <div class="form-group col-sm-4">
-                    <label>Promedio obtenido*:</label>
-                    <input type="text" class="form-control" placeholder="Promedio obtenido">
-                </div>
-                <div class="form-group col-sm-8">
-                    <label>Selecciona tu tipo de titulación*:</label>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="titulacion" checked> Tesis
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="titulacion"> Estudios de Maestría 
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="titulacion"> Otro
-                        </label>
+                <!-- Institución -->
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Nombre de la institución educativa*:</label>
+                        <input type="text" class="form-control mayus-auto"
+                            placeholder="Nombre de la institución educativa">
                     </div>
                 </div>
-            </div>
+
+     
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Nombre del grado académico que obtuviste*:</label>
+                        <input type="text" class="form-control mayus-auto"
+                            placeholder="Nombre del grado académico que obtuviste">
+                    </div>
+                </div>
+
+                <!-- Año y promedio -->
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label>Año de obtención del grado*:</label>
+                        <input type="text" class="form-control" placeholder="Año de obtención del grado">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Promedio obtenido*:</label>
+                        <input type="text" class="form-control" placeholder="Promedio obtenido">
+                    </div>
+                </div>
+
+                <!-- Tipo de titulación -->
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Selecciona tu tipo de titulación*:</label>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="titulacion" value="tesis">
+                                Tesis
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="titulacion" value="maestria">
+                                Estudios de Maestría
+                            </label>
+                        </div>
+
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="titulacion" value="otro">
+                                Otro
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+       
 
             <h2>Dominio del idioma inglés</h2>
             <hr class="red">
@@ -987,45 +1008,6 @@
 
 <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
 
-<script>
-    function convertirAMayusculas(texto) {
-        return texto.replace(/[a-záéíóúüñ]/gi, function(caracter) {
-            const mapa = {
-                'á': 'Á', 'é': 'É', 'í': 'Í', 'ó': 'Ó', 'ú': 'Ú',
-                'ü': 'Ü', 'ñ': 'Ñ'
-            };
-            if (mapa[caracter]) return mapa[caracter];
-            return caracter.toUpperCase();
-        });
-    }
-
-    function manejarEntrada(event) {
-        const campo = event.target;
-        const inicio = campo.selectionStart;
-        const fin = campo.selectionEnd;
-        
-        const textoOriginal = campo.value;
-        const textoConvertido = convertirAMayusculas(textoOriginal);
-        
-        if (textoOriginal !== textoConvertido) {
-            campo.value = textoConvertido;
-            campo.setSelectionRange(inicio, fin);
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const camposATransformar = document.querySelectorAll('input[type="text"].mayus-auto, input[type="email"].mayus-auto, textarea.mayus-auto');
-        
-        camposATransformar.forEach(campo => {
-            campo.addEventListener('input', manejarEntrada);
-        });
-        
-        const curpField = document.querySelector('input[placeholder="Ingresa tu CURP"]');
-        if (curpField) {
-            curpField.addEventListener('input', manejarEntrada);
-        }
-    });
-</script>
 
 </body>
 </html>

@@ -20,9 +20,9 @@
 .container{
     width: 98%;
     max-width: 1800px;
-    margin: 0 auto;
-    padding: 20px;
-}
+          margin: 0 auto;  
+            padding: 20px;
+        }
 /* Hace que la barra vino cubra toda la altura */
 .navbar,
 .navbar-inverse{
@@ -86,13 +86,6 @@ img{
         font-size: 20px;
     }
 
-    h1{
-        font-size: 48px;
-    }
-
-    h2{
-        font-size: 36px;
-    }
 
     .form-control{
         min-height: 55px;
@@ -108,17 +101,7 @@ img{
         padding: 15px;
     }
 
-    h1{
-        font-size: 34px;
-    }
-
-    h2{
-        font-size: 28px;
-    }
-
-    h3{
-        font-size: 24px;
-    }
+ 
 
     .form-control{
         min-height: 48px;
@@ -137,18 +120,6 @@ img{
         font-size: 17px;
     }
 
-    h1{
-        font-size: 30px;
-        line-height: 1.3;
-    }
-
-    h2{
-        font-size: 25px;
-    }
-
-    h3{
-        font-size: 22px;
-    }
 
     label,
     p,
@@ -185,17 +156,6 @@ img{
         font-size: 16px;
     }
 
-    h1{
-        font-size: 26px;
-    }
-
-    h2{
-        font-size: 22px;
-    }
-
-    h3{
-        font-size: 20px;
-    }
 
     .form-control{
         font-size: 16px;
@@ -233,10 +193,10 @@ html, body {
     width: 100%;
 }
 
-/* ===== NUEVOS ESTILOS PARA VALIDACIÓN ===== */
+/* ===== SOLO AGREGADO PARA VALIDACIÓN (sin afectar diseño original) ===== */
 .input-error {
     border: 1px solid #b91c1c !important;
-    box-shadow: 0 0 0 0.2rem rgba(185, 28, 28, 0.25) !important;
+    background-color: #fff8f8;
 }
 
 .error-mensaje {
@@ -268,9 +228,10 @@ html, body {
                 <strong>Registro exitoso</strong>, tu información está siendo procesada.
             </div>
 
+            <!-- ===== ALERTA DE ERROR  ===== -->
             <div id="alertaError" class="alert alert-danger" style="display: none; margin-top: 15px;">
-    <strong>¡Error de registro!</strong> Has dejado campos obligatorios vacíos. Por favor verifica.
-</div>
+                <strong>¡Error de registro!</strong> Has dejado campos obligatorios vacíos. Por favor verifica.
+            </div>
 
             <form id="formAdmision" role="form">
                 <section id="Inicio"></section>
@@ -347,8 +308,8 @@ html, body {
 
                 <div class="row g-3">
                     <div class="form-group col-6 col-md-3">
-                        <label>Lada:</label>
-                        <input type="text" class="form-control mayus-auto" id="lada" placeholder="LADA">
+                        <label>Lada*:</label>
+                        <input type="text" class="form-control mayus-auto" id="lada" placeholder="LADA" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3">
@@ -399,31 +360,31 @@ html, body {
 
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
-                        <label>Localidad:</label>
-                        <input type="text" class="form-control mayus-auto" id="localidad" placeholder="LOCALIDAD">
+                        <label>Localidad*:</label>
+                        <input type="text" class="form-control mayus-auto" id="localidad" placeholder="LOCALIDAD" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
-                        <label>Colonia:</label>
-                        <input type="text" class="form-control mayus-auto" id="colonia" placeholder="COLONIA">
+                        <label>Colonia*:</label>
+                        <input type="text" class="form-control mayus-auto" id="colonia" placeholder="COLONIA" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
-                        <label>Tipo de calle:</label>
-                        <input type="text" class="form-control mayus-auto" id="tipoCalle" placeholder="TIPO DE CALLE">
+                        <label>Tipo de calle*:</label>
+                        <input type="text" class="form-control mayus-auto" id="tipoCalle" placeholder="TIPO DE CALLE" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
 
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
-                        <label>Calle:</label>
-                        <input type="text" class="form-control mayus-auto" id="calle" placeholder="CALLE">
+                        <label>Calle*:</label>
+                        <input type="text" class="form-control mayus-auto" id="calle" placeholder="CALLE" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
-                        <label>Número exterior:</label>
-                        <input type="text" class="form-control mayus-auto" id="numExt" placeholder="NÚMERO EXTERIOR">
+                        <label>Número exterior*:</label>
+                        <input type="text" class="form-control mayus-auto" id="numExt" placeholder="NÚMERO EXTERIOR" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
@@ -435,8 +396,8 @@ html, body {
 
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
-                        <label>País:</label>
-                        <input type="text" class="form-control mayus-auto" id="pais" placeholder="PAÍS">
+                        <label>País*:</label>
+                        <input type="text" class="form-control mayus-auto" id="pais" placeholder="PAÍS" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -447,13 +408,13 @@ html, body {
 
                 <div class="row g-3">
                     <div class="col-6 col-md-2">
-                        <label>Lada:</label>
-                        <input type="text" class="form-control mayus-auto" id="ladaEmergencia" placeholder="LADA">
+                        <label>Lada*:</label>
+                        <input type="text" class="form-control mayus-auto" id="ladaEmergencia" placeholder="LADA" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3 form-group">
-                        <label>Teléfono fijo:</label>
-                        <input type="text" class="form-control mayus-auto" id="telFijoEmergencia" placeholder="TELÉFONO FIJO">
+                        <label>Teléfono fijo*:</label>
+                        <input type="text" class="form-control mayus-auto" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-2 form-group">
@@ -462,16 +423,16 @@ html, body {
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3 form-group">
-                        <label>Teléfono móvil:</label>
-                        <input type="text" class="form-control mayus-auto" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL">
+                        <label>Teléfono móvil*:</label>
+                        <input type="text" class="form-control mayus-auto" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
-                        <label>Parentesco:</label>
-                        <input type="text" class="form-control mayus-auto" id="parentesco" placeholder="PARENTESCO">
+                        <label>Parentesco*:</label>
+                        <input type="text" class="form-control mayus-auto" id="parentesco" placeholder="PARENTESCO" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -525,11 +486,11 @@ html, body {
 
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
-                        <label>Año de ingreso al posgrado:</label>
-                        <input type="text" class="form-control mayus-auto" id="anioIngreso" placeholder="AÑO DE INGRESO">
+                        <label>Año de ingreso al posgrado*:</label>
+                        <input type="text" class="form-control mayus-auto" id="anioIngreso" placeholder="AÑO DE INGRESO" required>
                     </div>
                     <div class="form-group col-12 col-md-8">
-                        <label>Periodo de ingreso al posgrado:</label>
+                        <label>Periodo de ingreso al posgrado*:</label>
                         <div class="radio">
                             <label><input type="radio" name="periodo" value="Agosto-Diciembre"> AGOSTO-DICIEMBRE</label>
                             <label><input type="radio" name="periodo" value="Enero-Mayo"> ENERO-MAYO</label>
@@ -541,29 +502,29 @@ html, body {
                 <hr class="red">
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
-                        <label>Nombre de la institución educativa:</label>
-                        <input type="text" class="form-control mayus-auto" id="institucion" placeholder="NOMBRE DE LA INSTITUCIÓN">
+                        <label>Nombre de la institución educativa*:</label>
+                        <input type="text" class="form-control mayus-auto" id="institucion" placeholder="NOMBRE DE LA INSTITUCIÓN" required>
                     </div>
                     <div class="form-group col-12 col-md-6">
-                        <label>Nombre del grado académico que obtuviste:</label>
-                        <input type="text" class="form-control mayus-auto" id="gradoAcademico" placeholder="GRADO ACADÉMICO">
+                        <label>Nombre del grado académico que obtuviste*:</label>
+                        <input type="text" class="form-control mayus-auto" id="gradoAcademico" placeholder="GRADO ACADÉMICO" required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
-                        <label>Año de obtención del grado:</label>
-                        <input type="text" class="form-control mayus-auto" id="anioGrado" placeholder="AÑO DE OBTENCIÓN">
+                        <label>Año de obtención del grado*:</label>
+                        <input type="text" class="form-control mayus-auto" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" required>
                     </div>
                     <div class="form-group col-12 col-md-6">
-                        <label>Promedio obtenido:</label>
-                        <input type="text" class="form-control mayus-auto" id="promedio" placeholder="PROMEDIO">
+                        <label>Promedio obtenido*:</label>
+                        <input type="text" class="form-control mayus-auto" id="promedio" placeholder="PROMEDIO" required>
                     </div>
                 </div>
 
                 <div class="row">
     <div class="form-group col-12 col-md-6">
-        <label>Selecciona tu tipo de titulación:</label>
+        <label>Selecciona tu tipo de titulación*:</label>
         <div class="radio"><label><input type="radio" name="titulacion" value="Tesis"> TESIS</label></div>
         <div class="radio"><label><input type="radio" name="titulacion" value="Estudios de Maestría"> ESTUDIOS DE MAESTRÍA</label></div>
         <div class="radio"><label><input type="radio" name="titulacion" value="Otro"> OTRO</label></div>
@@ -571,7 +532,7 @@ html, body {
         <!-- Campo que aparece solo cuando se selecciona OTRO -->
         <div id="especificarTitulacionContainer" style="display: none; margin-top: 15px; margin-left: 20px;">
             <label>Especificar*:</label>
-            <input type="text" class="form-control mayus-auto" id="especificarTitulacion">
+            <input type="text" class="form-control mayus-auto" id="especificarTitulacion" required>
             <small class="text-danger error-mensaje"></small>
         </div>
     </div>
@@ -613,9 +574,9 @@ html, body {
                 <div class="row g-3"><div class="col-12 col-md-4"><div class="form-group"><label>TÍTULO:</label><input type="text" class="form-control mayus-auto" placeholder="TÍTULO"></div></div><div class="col-12 col-md-8"><div class="form-group"><label>DESCRIPCIÓN:</label><textarea rows="1" class="form-control mayus-auto" placeholder="DESCRIPCIÓN"></textarea></div></div></div>
 
                 <div class="row">
-                    <div class="form-group col-12 col-md-8">
-                        <label>Razón por la que deseas estudiar un posgrado en el INAOE:</label>
-                        <textarea class="form-control mayus-auto" id="razon" rows="3" placeholder="ESCRIBE TU MOTIVACIÓN..."></textarea>
+                    <div class="form-group col-12 col-md-12">
+                        <label>Razón por la que deseas estudiar un posgrado en el INAOE*:</label>
+                        <textarea class="form-control mayus-auto" id="razon" rows="3" placeholder="ESCRIBE TU MOTIVACIÓN..." required></textarea>
                     </div>
                 </div>
 
@@ -774,8 +735,9 @@ toggleCurpField();
                 
                 let esValido = true;
                 
-                // Ocultamos la alerta de éxito previa
+                // Ocultamos las alertas previas
                 $('#alertaExito').fadeOut();
+                $('#alertaError').fadeOut();
                 
                 // Revisamos TODOS los campos con required
                 $('#formAdmision [required]').each(function() {
@@ -796,7 +758,7 @@ toggleCurpField();
                         return;
                     }
                     
-                    // Validar si está vacío
+                    // Validar si está vacío o es el placeholder "SELECCIONA"
                     if (valor === "" || valor === "SELECCIONA") {
                         esValido = false;
                         $el.addClass('input-error');
@@ -806,6 +768,30 @@ toggleCurpField();
                         $contenedorError.text('');
                     }
                 });
+                
+                // Validar específicamente el select de maestría/doctorado según el posgrado seleccionado
+                let posgradoSeleccionado = $('input[name="posgrado"]:checked').val();
+                if (posgradoSeleccionado === "Maestría") {
+                    let maestriaVal = $('#maestriaSelect').val();
+                    if (!maestriaVal || maestriaVal === "SELECCIONA") {
+                        esValido = false;
+                        $('#maestriaSelect').addClass('input-error');
+                        $('#maestriaSelect').siblings('.error-mensaje').text('Selecciona una especialidad');
+                    }
+                } else if (posgradoSeleccionado === "Doctorado") {
+                    let doctoradoVal = $('#doctoradoSelect').val();
+                    if (!doctoradoVal || doctoradoVal === "SELECCIONA") {
+                        esValido = false;
+                        $('#doctoradoSelect').addClass('input-error');
+                        $('#doctoradoSelect').siblings('.error-mensaje').text('Selecciona una especialidad');
+                    }
+                }
+                
+                // Validar que se haya seleccionado al menos un radio del grupo "posgrado"
+                if ($('input[name="posgrado"]:checked').length === 0) {
+                    esValido = false;
+                    $('input[name="posgrado"]').closest('.form-group').find('.error-mensaje').first().text('Selecciona un tipo de posgrado');
+                }
                 
                 // Si todo está correcto
                 if (esValido) {
@@ -817,6 +803,8 @@ toggleCurpField();
                     // Mostrar el modal de resumen
                     mostrarResumen();
                 } else {
+                    // Mostrar alerta de error (como la que pediste)
+                    $('#alertaError').fadeIn();
                     // Scroll al primer error
                     $('html, body').animate({
                         scrollTop: $('.input-error').first().offset().top - 100
@@ -867,7 +855,7 @@ toggleCurpField();
                 html += `<li><strong>Año de obtención:</strong> ${$("#anioGrado").val() || "No especificado"}</li>`;
                 html += `<li><strong>Promedio:</strong> ${$("#promedio").val() || "No especificado"}</li>`;
                 html += `<li><strong>Tipo de titulación:</strong> ${$('input[name="titulacion"]:checked').val() || "No seleccionado"}</li>`;
-                html += `</ul><div class="section-title">🇬🇧 Dominio del inglés</div><ul>`;
+                html += `</ul><div class="section-title">Dominio del inglés</div><ul>`;
                 html += `<li><strong>Expresión escrita:</strong> ${getNivelIngles("ingles1")}</li>`;
                 html += `<li><strong>Expresión oral:</strong> ${getNivelIngles("ingles2")}</li>`;
                 html += `<li><strong>Comprensión lectora:</strong> ${getNivelIngles("ingles3")}</li>`;

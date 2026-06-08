@@ -46,13 +46,55 @@ textarea.form-control{
     font-size: 18px;
     padding: 12px 25px;
 }
-.datepicker-group .fa-calendar{
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    font-size: 18px;
-    color: #777;
-    pointer-events: none;
+
+/* ===== ICONO DEL CALENDARIO FIJO - NUNCA SE MUEVE ===== */
+.datepicker-group {
+    position: relative;
+}
+
+.datepicker-group .fa-calendar {
+    position: absolute !important;
+    right: 15px !important;
+    bottom: 15px !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    font-size: 18px !important;
+    color: #777 !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+}
+
+/* Para pantallas grandes */
+@media (min-width: 1600px){
+    .datepicker-group .fa-calendar {
+        bottom: 18px !important;
+        right: 18px !important;
+        font-size: 20px !important;
+    }
+}
+
+/* Para tablets */
+@media (max-width: 992px){
+    .datepicker-group .fa-calendar {
+        bottom: 14px !important;
+        right: 14px !important;
+    }
+}
+
+/* Para celulares */
+@media (max-width: 768px){
+    .datepicker-group .fa-calendar {
+        bottom: 14px !important;
+        right: 14px !important;
+        font-size: 16px !important;
+    }
+}
+
+/* Ajuste para el label dentro de datepicker-group */
+.datepicker-group label {
+    display: block;
+    margin-bottom: 5px;
 }
 
 /* Tablas */
@@ -222,6 +264,38 @@ html, body {
 .evaluacion-container label {
     font-weight: normal;
 }
+
+/* Clase para campos numéricos */
+.solo-numeros {
+    ime-mode: disabled;
+}
+
+/* Alerta flotante para errores de numeros */
+.alerta-numeros {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4444;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    animation: fadeOut 2.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* Forzar teclado numérico en móviles */
+input[type="text"].solo-numeros {
+    inputmode: numeric;
+    pattern: "\\d*";
+}
     </style>
 </head>
 
@@ -326,22 +400,22 @@ html, body {
                 <div class="row g-3">
                     <div class="form-group col-6 col-md-3">
                         <label>Lada*:</label>
-                        <input type="text" class="form-control mayus-auto" id="lada" placeholder="LADA" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="lada" placeholder="LADA" required maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3">
                         <label>Teléfono fijo:</label>
-                        <input type="text" class="form-control mayus-auto" id="telFijo" placeholder="TELÉFONO FIJO">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telFijo" placeholder="TELÉFONO FIJO" maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3">
                         <label>Ext.:</label>
-                        <input type="text" class="form-control mayus-auto" id="ext" placeholder="EXT">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="ext" placeholder="EXT" maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3">
                         <label>Teléfono móvil*:</label>
-                        <input type="text" class="form-control mayus-auto" id="telMovil" placeholder="TELÉFONO MÓVIL" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovil" placeholder="TELÉFONO MÓVIL" required maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -360,7 +434,7 @@ html, body {
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Código Postal*:</label>
-                        <input type="text" class="form-control mayus-auto" id="cp" placeholder="CÓDIGO POSTAL" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="cp" placeholder="CÓDIGO POSTAL" required maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
@@ -401,12 +475,12 @@ html, body {
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Número exterior*:</label>
-                        <input type="text" class="form-control mayus-auto" id="numExt" placeholder="NÚMERO EXTERIOR" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="numExt" placeholder="NÚMERO EXTERIOR" required maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Número interior:</label>
-                        <input type="text" class="form-control mayus-auto" id="numInt" placeholder="NÚMERO INTERIOR">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="numInt" placeholder="NÚMERO INTERIOR" maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -426,22 +500,22 @@ html, body {
                 <div class="row g-3">
                     <div class="col-6 col-md-2">
                         <label>Lada*:</label>
-                        <input type="text" class="form-control mayus-auto" id="ladaEmergencia" placeholder="LADA" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="ladaEmergencia" placeholder="LADA" required maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3 form-group">
                         <label>Teléfono fijo*:</label>
-                        <input type="text" class="form-control mayus-auto" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-2 form-group">
                         <label>Ext.:</label>
-                        <input type="text" class="form-control mayus-auto" id="extEmergencia" placeholder="EXT">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="extEmergencia" placeholder="EXT" maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3 form-group">
                         <label>Teléfono móvil*:</label>
-                        <input type="text" class="form-control mayus-auto" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -504,7 +578,7 @@ html, body {
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Año de ingreso al posgrado*:</label>
-                        <input type="text" class="form-control mayus-auto" id="anioIngreso" placeholder="AÑO DE INGRESO" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioIngreso" placeholder="AÑO DE INGRESO" required maxlength="4" inputmode="numeric" pattern="\d*">
                     </div>
                     <div class="form-group col-12 col-md-8" id="periodoContainer">
                         <label>Periodo de ingreso al posgrado*:</label>
@@ -554,11 +628,11 @@ html, body {
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
                         <label>Año de obtención del grado*:</label>
-                        <input type="text" class="form-control mayus-auto" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" required maxlength="4" inputmode="numeric" pattern="\d*">
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Promedio obtenido*:</label>
-                        <input type="text" class="form-control mayus-auto" id="promedio" placeholder="PROMEDIO" required>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="promedio" placeholder="PROMEDIO" required maxlength="5" inputmode="numeric" pattern="\d*">
                     </div>
                 </div>
 
@@ -600,9 +674,9 @@ html, body {
                     <table class="table table-hover">
                         <thead><tr><th>INSTITUCIÓN O EMPRESA</th><th>TIPO DE EXPERIENCIA</th><th>PUESTO Y FUNCIONES</th><th>TIEMPO LABORADO</th></tr></thead>
                         <tbody>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -686,6 +760,35 @@ html, body {
                 dateFormat: "dd/mm/yy"
             });
 
+            // ===== FUNCIÓN PARA MOSTRAR ALERTA DE SOLO NÚMEROS =====
+            function mostrarAlertaNumeros() {
+                $('.alerta-numeros').remove();
+                var alerta = $('<div class="alerta-numeros">⚠️ Solo se aceptan números en este campo</div>');
+                $('body').append(alerta);
+                setTimeout(function() {
+                    alerta.remove();
+                }, 2500);
+            }
+
+            // ===== FUNCIÓN PARA LIMPIAR CAMPOS NUMÉRICOS =====
+            function limpiarCampoNumerico(e) {
+                var $el = $(this);
+                var valor = $el.val();
+                if (valor && /[^0-9]/.test(valor)) {
+                    var soloNumerosValor = valor.replace(/[^0-9]/g, '');
+                    $el.val(soloNumerosValor);
+                    if (soloNumerosValor !== valor) {
+                        mostrarAlertaNumeros();
+                    }
+                }
+            }
+
+            // Aplicar limpieza a todos los campos numéricos
+            $(document).on('input', '.solo-numeros', limpiarCampoNumerico);
+            $(document).on('paste', '.solo-numeros', function(e) {
+                setTimeout(limpiarCampoNumerico.bind(this), 10);
+            });
+
             // ===== BLOQUEAR/DESBLOQUEAR CURP Y LINK SEGÚN NACIONALIDAD =====
             function toggleCurpField() {
                 let nacionalidad = $('input[name="nacionalidad"]:checked').val();
@@ -720,28 +823,22 @@ html, body {
             $("#maestrias").hide();
             $("#doctorados").hide();
             
-            // Función para actualizar período según posgrado seleccionado (ninguna opción preseleccionada)
             function actualizarPeriodoYEvalucion() {
                 let posgradoSeleccionado = $('input[name="posgrado"]:checked').val();
                 let $opcionesPeriodo = $('#opcionesPeriodo');
                 
-                // Limpiar mensaje de error de período al cambiar opciones
                 $('#errorPeriodo').text('');
                 
                 if (posgradoSeleccionado === "Maestría") {
-                    // Solo mostrar la opción Agosto-Diciembre, pero SIN marcar
                     $opcionesPeriodo.html(`
                         <div class="radio">
                             <label><input type="radio" name="periodo" value="Agosto-Diciembre"> AGOSTO-DICIEMBRE</label>
                         </div>
                     `);
-                    // Mostrar sección de evaluación
                     $('#evaluacionContainer').slideDown(300);
-                    // Limpiar selección previa de evaluación si existía
                     $('input[name="formaEvaluacion"]').prop('checked', false);
                 } 
                 else if (posgradoSeleccionado === "Doctorado") {
-                    // Mostrar ambas opciones, ninguna seleccionada
                     $opcionesPeriodo.html(`
                         <div class="radio">
                             <label><input type="radio" name="periodo" value="Agosto-Diciembre"> AGOSTO-DICIEMBRE</label>
@@ -750,18 +847,15 @@ html, body {
                             <label><input type="radio" name="periodo" value="Enero-Mayo"> ENERO-MAYO</label>
                         </div>
                     `);
-                    // Ocultar sección de evaluación
                     $('#evaluacionContainer').slideUp(300);
                     $('input[name="formaEvaluacion"]').prop('checked', false);
                 }
                 else {
-                    // Ningún posgrado seleccionado: mostrar solo la opción Agosto-Diciembre, SIN marcar
                     $opcionesPeriodo.html(`
                         <div class="radio">
                             <label><input type="radio" name="periodo" value="Agosto-Diciembre"> AGOSTO-DICIEMBRE</label>
                         </div>
                     `);
-                    // Aseguramos que no esté marcada
                     $('input[name="periodo"]').prop('checked', false);
                     $('#evaluacionContainer').slideUp(300);
                     $('input[name="formaEvaluacion"]').prop('checked', false);
@@ -779,7 +873,6 @@ html, body {
                 actualizarPeriodoYEvalucion();
             });
             
-            // Inicializar estado: ningún posgrado seleccionado, solo mostrar opción pero sin marcar
             actualizarPeriodoYEvalucion();
 
             // ===== VALIDACIÓN EN TIEMPO REAL =====
@@ -854,7 +947,6 @@ html, body {
                     }
                 }
                 
-                // Validar período obligatorio (debe estar seleccionado por el usuario)
                 if ($('input[name="periodo"]:checked').length === 0) {
                     esValido = false;
                     $('#errorPeriodo').text('Este campo es obligatorio');

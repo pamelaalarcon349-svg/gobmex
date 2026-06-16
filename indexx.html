@@ -24,8 +24,7 @@
             padding: 20px;
         }
 /* Hace que la barra vino cubra toda la altura */
-.navbar,
-.navbar-inverse{
+.navbar{
     min-height: 100px !important;
     background-color: #611232 !important;
 }
@@ -498,27 +497,42 @@ input[type="text"].solo-numeros {
                 <hr class="red">
 
                 <div class="row g-3">
-                    <div class="col-6 col-md-2">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Nombre(s)*:</label>
+                        <input type="text" class="form-control mayus-auto" id="nombre" placeholder="Nombre(s)"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                       <div class="form-group col-12 col-md-4">
+                        <label>Apellido Paterno*:</label>
+                        <input type="text" class="form-control mayus-auto" id="primerApellido*:" placeholder="Apellido Paterno"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                       <div class="form-group col-12 col-md-4">
+                        <label>Apellido Materno*:</label>
+                        <input type="text" class="form-control mayus-auto" id="segundoApellido*:" placeholder="Apellido Materno"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-4">
                         <label>Lada*:</label>
                         <input type="text" class="form-control mayus-auto solo-numeros" id="ladaEmergencia" placeholder="LADA" required maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
-                    <div class="col-6 col-md-3 form-group">
+                    <div class="col-6 col-md-4 form-group">
                         <label>Teléfono fijo*:</label>
                         <input type="text" class="form-control mayus-auto solo-numeros" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
-                    <div class="col-6 col-md-2 form-group">
+                    <div class="col-6 col-md-4 form-group">
                         <label>Ext.:</label>
                         <input type="text" class="form-control mayus-auto solo-numeros" id="extEmergencia" placeholder="EXT" maxlength="10" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
-                    <div class="col-6 col-md-3 form-group">
+                    <div class="col-6 col-md-4 form-group">
                         <label>Teléfono móvil*:</label>
                         <input type="text" class="form-control mayus-auto solo-numeros" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required maxlength="15" inputmode="numeric" pattern="\d*">
                         <small class="text-danger error-mensaje"></small>
                     </div>
-                </div>
+            
 
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
@@ -674,9 +688,9 @@ input[type="text"].solo-numeros {
                     <table class="table table-hover">
                         <thead><tr><th>INSTITUCIÓN O EMPRESA</th><th>TIPO DE EXPERIENCIA</th><th>PUESTO Y FUNCIONES</th><th>TIEMPO LABORADO</th></tr></thead>
                         <tbody>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
-                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto solo-numeros" placeholder="TIEMPO" inputmode="numeric" pattern="\d*"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"  pattern="\d*"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"pattern="\d*"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"  pattern="\d*"></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -1025,6 +1039,8 @@ input[type="text"].solo-numeros {
             $("#confirmarEnvio").on("click", function() {
                 $("#modalResumen").modal("hide");
                 alert("Solicitud enviada con éxito. Pronto recibirás respuesta del INAOE.");
+
+                
             });
         });
     </script>

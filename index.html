@@ -111,12 +111,12 @@
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Nombre(s)*:</label>
-                        <input type="text" class="form-control mayus-auto" id="nombre" placeholder="INGRESA TU NOMBRE">
+                        <input type="text" class="form-control mayus-auto" id="nombre" placeholder="INGRESA TU NOMBRE" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Primer apellido*:</label>
-                        <input type="text" class="form-control mayus-auto" id="primerApellido" placeholder="INGRESA TU PRIMER APELLIDO">
+                        <input type="text" class="form-control mayus-auto" id="primerApellido" placeholder="INGRESA TU PRIMER APELLIDO"required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-sm-4">
@@ -129,7 +129,7 @@
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Sexo*:</label>
-                        <select class="form-control mayus-auto" id="sexo">
+                        <select class="form-control mayus-auto" id="sexo" required>
                             <option value="" selected>SELECCIONA</option>
                             <option>HOMBRE</option>
                             <option>MUJER</option>
@@ -140,7 +140,7 @@
                     <div class="form-group col-12 col-md-4">
                         <div class="form-group datepicker-group">
                             <label for="fechaNacimiento">Fecha de nacimiento*:</label>
-                            <input type="text" class="form-control" id="fechaNacimiento" placeholder="FECHA DE NACIMIENTO">
+                            <input type="text" class="form-control" id="fechaNacimiento" placeholder="FECHA DE NACIMIENTO"required>
                             <i class="fa fa-calendar" aria-hidden="true"></i>
                             <small class="text-danger error-mensaje"></small>
                         </div>
@@ -148,7 +148,7 @@
                     
                     <div class="form-group col-12 col-md-4">
                         <label>Lugar de nacimiento*:</label>
-                        <input type="text" class="form-control mayus-auto" id="lugarNacimiento" placeholder="LUGAR DE NACIMIENTO">
+                        <input type="text" class="form-control mayus-auto" id="lugarNacimiento" placeholder="LUGAR DE NACIMIENTO"required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                 <div class="row g-3">
                     <div class="form-group col-6 col-md-3">
                         <label>Lada*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="lada" placeholder="LADA" maxlength="10">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="lada" placeholder="LADA" maxlength="10" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="col-6 col-md-3">
@@ -171,7 +171,7 @@
                     </div>
                     <div class="col-6 col-md-3">
                         <label>Teléfono móvil*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovil" placeholder="TELÉFONO MÓVIL" maxlength="15">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovil" placeholder="TELÉFONO MÓVIL" maxlength="15" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                 <div class="row">
                     <div class="form-group col-12 col-md-12">
                         <label>Correo electrónico*:</label>
-                        <input type="text" class="form-control" id="email" placeholder="ejemplo@dominio.com">
+                        <input type="text" class="form-control" id="email" placeholder="ejemplo@dominio.com" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -190,17 +190,17 @@
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Código Postal*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="cp" placeholder="CÓDIGO POSTAL" maxlength="10">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="cp" placeholder="CÓDIGO POSTAL" maxlength="10" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Estado*:</label>
-                        <input type="text" class="form-control mayus-auto" id="estado" placeholder="ESTADO">
+                        <input type="text" class="form-control mayus-auto" id="estado" placeholder="ESTADO" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Municipio o Alcaldía*:</label>
-                        <input type="text" class="form-control mayus-auto" id="municipio" placeholder="MUNICIPIO O ALCALDÍA">
+                        <input type="text" class="form-control mayus-auto" id="municipio" placeholder="MUNICIPIO O ALCALDÍA" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -208,17 +208,17 @@
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
                         <label>Localidad*:</label>
-                        <input type="text" class="form-control mayus-auto" id="localidad" placeholder="LOCALIDAD">
+                        <input type="text" class="form-control mayus-auto" id="localidad" placeholder="LOCALIDAD" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Colonia*:</label>
-                        <input type="text" class="form-control mayus-auto" id="colonia" placeholder="COLONIA">
+                        <input type="text" class="form-control mayus-auto" id="colonia" placeholder="COLONIA" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Tipo de calle*:</label>
-                        <input type="text" class="form-control mayus-auto" id="tipoCalle" placeholder="TIPO DE CALLE">
+                        <input type="text" class="form-control mayus-auto" id="tipoCalle" placeholder="TIPO DE CALLE" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
@@ -226,12 +226,12 @@
                 <div class="row g-3">
                     <div class="form-group col-12 col-md-4">
                         <label>Calle*:</label>
-                        <input type="text" class="form-control mayus-auto" id="calle" placeholder="CALLE">
+                        <input type="text" class="form-control mayus-auto" id="calle" placeholder="CALLE" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
                         <label>Número exterior*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="numExt" placeholder="NÚMERO EXTERIOR" maxlength="10">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="numExt" placeholder="NÚMERO EXTERIOR" maxlength="10" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                     <div class="form-group col-12 col-md-4">
@@ -244,67 +244,106 @@
                 <div class="row">
                     <div class="form-group col-12 col-md-4">
                         <label>País*:</label>
-                        <input type="text" class="form-control mayus-auto" id="pais" placeholder="PAÍS">
+                        <input type="text" class="form-control mayus-auto" id="pais" placeholder="PAÍS" required>
                         <small class="text-danger error-mensaje"></small>
                     </div>
                 </div>
 
-                <h2>Contacto de emergencia</h2>
-                <p>(será el contacto de emergencia en caso de que algo suceda con el aspirante)</p>
-                <hr class="red">
+             <h2>Contacto de emergencia</h2>
+<p>(será el contacto de emergencia en caso de que algo suceda con el aspirante)</p>
+<hr class="red">
 
-                <div class="row g-3">
-                       
-                     <div class="form-group col-12 col-md-4">
-                        <label>Nombre(s)*:</label>
-                        <input type="text" class="form-control mayus-auto" id="nombreEmergencia" placeholder="Nombre(s)"required>
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                       <div class="form-group col-12 col-md-4">
-                        <label>Apellido Paterno*:</label>
-                        <input type="text" class="form-control mayus-auto" id="primerApellidoEmergencia*:" placeholder="Apellido Paterno"required>
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                       <div class="form-group col-12 col-md-4">
-                        <label>Apellido Materno*:</label>
-                        <input type="text" class="form-control mayus-auto" id="segundoApellidoEmergencia*:" placeholder="Apellido Materno"required>
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <label>Lada*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="ladaEmergencia" placeholder="LADA" required maxlength="10" inputmode="numeric" pattern="\d*">
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                    <div class="col-6 col-md-4 form-group">
-                        <label>Teléfono fijo*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required maxlength="15" inputmode="numeric" pattern="\d*">
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                    <div class="col-6 col-md-4 form-group">
-                        <label>Ext.:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="extEmergencia" placeholder="EXT" maxlength="10" inputmode="numeric" pattern="\d*">
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                    <div class="col-6 col-md-4 form-group">
-                        <label>Teléfono móvil*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required maxlength="15" inputmode="numeric" pattern="\d*">
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
+<!-- Fila 1 -->
+<div class="row">
+    <div class="form-group col-12 col-md-4">
+        <label>Nombre(s)*:</label>
+        <input type="text" class="form-control mayus-auto"
+               id="nombreEmergencia"
+               placeholder="NOMBRE(S)" required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
 
-                <div class="row">
-                    <div class="form-group col-12 col-md-4">
-                        <label>Parentesco*:</label>
-                        <input type="text" class="form-control mayus-auto" id="parentesco" placeholder="PARENTESCO">
-                        <small class="text-danger error-mensaje"></small>
-                    </div>
-                </div>
+    <div class="form-group col-12 col-md-4">
+        <label>Apellido Paterno*:</label>
+        <input type="text" class="form-control mayus-auto"
+               id="primerApellidoEmergencia"
+               placeholder="APELLIDO PATERNO" required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
 
+    <div class="form-group col-12 col-md-4">
+        <label>Apellido Materno:</label>
+        <input type="text" class="form-control mayus-auto"
+               id="segundoApellidoEmergencia"
+               placeholder="APELLIDO MATERNO">
+        <small class="text-danger error-mensaje"></small>
+    </div>
+</div>
+
+<!-- Fila 2 -->
+<div class="row">
+    <div class="form-group col-12 col-md-4">
+        <label>Lada*:</label>
+        <input type="text"
+               class="form-control mayus-auto solo-numeros"
+               id="ladaEmergencia"
+               placeholder="LADA"
+               maxlength="10"
+               required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label>Teléfono fijo*:</label>
+        <input type="text"
+               class="form-control mayus-auto solo-numeros"
+               id="telFijoEmergencia"
+               placeholder="TELÉFONO FIJO"
+               maxlength="15"
+               required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label>Ext.:</label>
+        <input type="text"
+               class="form-control mayus-auto solo-numeros"
+               id="extEmergencia"
+               placeholder="EXT"
+               maxlength="10">
+        <small class="text-danger error-mensaje"></small>
+    </div>
+</div>
+
+<!-- Fila 3 -->
+<div class="row">
+    <div class="form-group col-12 col-md-4">
+        <label>Teléfono móvil*:</label>
+        <input type="text"
+               class="form-control mayus-auto solo-numeros"
+               id="telMovilEmergencia"
+               placeholder="TELÉFONO MÓVIL"
+               maxlength="15"
+               required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label>Parentesco*:</label>
+        <input type="text"
+               class="form-control mayus-auto"
+               id="parentesco"
+               placeholder="PARENTESCO"
+               required>
+        <small class="text-danger error-mensaje"></small>
+    </div>
+</div>
                 <h2>Datos académicos del aspirante</h2>
                 <hr class="red">
                 <div class="row">
                     <div class="form-group col-12 col-md-8">
                         <label>Posgrado a ingresar*:</label>
-                        <div class="radio">
+                        <div class="radio" >
                             <label><input type="radio" name="posgrado" id="posgrado1" value="Maestría" /> Maestría</label>
                             <div class="form-group" id="maestrias" style="margin-top: 10px; margin-left: 20px; display: none;">
                                 <select class="form-control mayus-auto" id="maestriaSelect">
@@ -347,7 +386,7 @@
                     </div>
                     <div class="form-group col-12 col-md-8" id="periodoContainer">
                         <label>Periodo de ingreso al posgrado*:</label>
-                        <div id="opcionesPeriodo"></div>
+                        <div id="opcionesPeriodo" required></div>
                         <small class="text-danger error-mensaje" id="errorPeriodo"></small>
                     </div>
                 </div>
@@ -371,22 +410,22 @@
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
                         <label>Nombre de la institución educativa*:</label>
-                        <input type="text" class="form-control mayus-auto" id="institucion" placeholder="NOMBRE DE LA INSTITUCIÓN">
+                        <input type="text" class="form-control mayus-auto" id="institucion" placeholder="NOMBRE DE LA INSTITUCIÓN"required>
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Nombre del grado académico que obtuviste*:</label>
-                        <input type="text" class="form-control mayus-auto" id="gradoAcademico" placeholder="GRADO ACADÉMICO">
+                        <input type="text" class="form-control mayus-auto" id="gradoAcademico" placeholder="GRADO ACADÉMICO"required>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-12 col-md-6">
                         <label>Año de obtención del grado*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" maxlength="4">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" maxlength="4"required>
                     </div>
                     <div class="form-group col-12 col-md-6">
                         <label>Promedio obtenido*:</label>
-                        <input type="text" class="form-control mayus-auto solo-numeros" id="promedio" placeholder="PROMEDIO" maxlength="5">
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="promedio" placeholder="PROMEDIO" maxlength="5" required>
                     </div>
                 </div>
 

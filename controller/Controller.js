@@ -195,3 +195,130 @@ class AdmisionController {
 document.addEventListener('DOMContentLoaded', () => {
     new AdmisionController(new AdmisionModel(), new AdmisionView());
 });
+
+            // ===== VALIDACIÓN AL ENVIAR =====
+            $('#btnEnviarModal').on('click', function(e) {
+                e.preventDefault();
+                let esValido = true;
+                $('#alertaExito').fadeOut();
+                $('#alertaError').fadeOut();
+                
+                $('#formAdmision [required]').each(function() {
+                    let $el = $(this);
+                    if ($el.prop('disabled')) return;
+                    let valor = $el.val() ? $el.val().trim() : "";
+                    let $contenedorError = $el.siblings('.error-mensaje');
+                    
+                    if ($el.attr('type') === 'radio') {
+                        let name = $el.attr('name');
+                        if ($(`input[name="${name}"]:checked`).length === 0) {
+                            esValido = false;
+                            let $radioGroup = $el.closest('.form-group');
+                            $radioGroup.find('.error-mensaje').first().text('Este campo es obligatorio');
+                        }
+                        return;
+                    }
+                    
+                    if (valor === "" || valor === "SELECCIONA") {
+                        esValido = false;
+                        $el.addClass('input-error');
+                        $contenedorError.text('Este campo es obligatorio');
+                    }
+                });
+                
+                let posgradoSeleccionado = $('input[name="posgrado"]:checked').val();
+                if (posgradoSeleccionado === "Maestría") {
+                    let maestriaVal = $('#maestriaSelect').val();
+                    if (!maestriaVal || maestriaVal === "SELECCIONA") {
+                        esValido = false;
+                        $('#maestriaSelect').addClass('input-error');
+                    }
+                } else if (posgradoSeleccionado === "Doctorado") {
+                    let doctoradoVal = $('#doctoradoSelect').val();
+                    if (!doctoradoVal || doctoradoVal === "SELECCIONA") {
+                        esValido = false;
+                        $('#doctoradoSelect').addClass('input-error');
+                    }
+                }
+                
+                if ($('input[name="periodo"]:checked').length === 0) {
+                    esValido = false;
+                    $('#errorPeriodo').text('Este campo es obligatorio');
+                } else {
+                    $('#errorPeriodo').text('');
+                }
+                
+                if (esValido) {
+                    $('#alertaExito').fadeIn();
+                    mostrarResumen();
+                } else {
+                    $('#alertaError').fadeIn();
+                    $('html, body').animate({ scrollTop: $('.input-error').first().offset().top - 100 }, 500);
+                }
+            });
+
+            function getPosgradoDetalle() {
+                let tipo = $('input[name="posgrado"]:checked').val();
+                if (tipo === "Maestría") {
+                    let especialidad = $("#maestriaSelect option:selected").text();
+                    return especialidad && especialidad !== "SELECCIONA" ? `Maestría en ${especialidad}` : "Maestría";
+                } else if (tipo === "Doctorado") {
+                    let especialidad = $("#doctoradoSelect option:selected").text();
+                    return especialidad && especialidad !== "SELECCIONA" ? `Doctorado en ${especialidad}` : "Doctorado";
+                }
+                return "No seleccionado";
+            }
+
+            function getNivelIngles(name) {
+                let val = $(`input[name="${name}"]:checked`).val();
+                return val ? val : "No especificado";
+            }
+
+            function mostrarResumen() {
+                let tipoTitulacion = $('input[name="titulacion"]:checked').val() || "No seleccionado";
+                if (tipoTitulacion === "Otro") {
+                    tipoTitulacion += ` - ${$("#especificarTitulacion").val() || "No especificado"}`;
+                }
+                
+                let formaEval = $('input[name="formaEvaluacion"]:checked').val();
+                let evalHtml = formaEval ? `<li><strong>Forma de Evaluación:</strong> ${formaEval}</li>` : '';
+                
+                let html = '<div class="section-title"> Datos personales</div><ul>';
+                html += `<li><strong>Posgrado seleccionado:</strong> ${getPosgradoDetalle()}</li>`;
+                html += `<li><strong>Año de ingreso:</strong> ${$("#anioIngreso").val() || "No especificado"}</li>`;
+                html += `<li><strong>Periodo:</strong> ${$('input[name="periodo"]:checked').val() || "No seleccionado"}</li>`;
+                html += evalHtml;
+                html += `<li><strong>Nacionalidad:</strong> ${$('input[name="nacionalidad"]:checked').val() || "No especificado"}</li>`;
+                html += `<li><strong>CURP:</strong> ${$("#curp").val() || "No especificado"}</li>`;
+                html += `<li><strong>Nombre completo:</strong> ${$("#nombre").val() || ""} ${$("#primerApellido").val() || ""} ${$("#segundoApellido").val() || ""}</li>`;
+                html += `<li><strong>Sexo:</strong> ${$("#sexo").val() || "No especificado"}</li>`;
+                html += `<li><strong>Fecha de nacimiento:</strong> ${$("#fecha_nacimiento").val() || "No especificada"}</li>`;
+                html += `<li><strong>Lugar de nacimiento:</strong> ${$("#lugarNacimiento").val() || "No especificado"}</li>`;
+                html += `<li><strong>Teléfono móvil:</strong> ${$("#telMovil").val() || "No especificado"}</li>`;
+                html += `<li><strong>Correo electrónico:</strong> ${$("#email").val() || "No especificado"}</li>`;
+                html += `<li><strong>Dirección completa:</strong> ${$("#calle").val() || ""} ${$("#numExt").val() || ""}, ${$("#colonia").val() || ""}, CP ${$("#cp").val() || ""}, ${$("#municipio").val() || ""}, ${$("#estado").val() || ""}</li>`;
+                html += `</ul><div class="section-title">Datos académicos</div><ul>`;
+                html += `<li><strong>Institución de procedencia:</strong> ${$("#institucion").val() || "No especificada"}</li>`;
+                html += `<li><strong>Grado obtenido:</strong> ${$("#gradoAcademico").val() || "No especificado"}</li>`;
+                html += `<li><strong>Año de obtención:</strong> ${$("#anioGrado").val() || "No especificado"}</li>`;
+                html += `<li><strong>Promedio:</strong> ${$("#promedio").val() || "No especificado"}</li>`;
+                html += `<li><strong>Tipo de titulación:</strong> ${tipoTitulacion}</li>`;
+                html += `</ul><div class="section-title">Dominio del inglés</div><ul>`;
+                html += `<li><strong>Expresión escrita:</strong> ${getNivelIngles("ingles1")}</li>`;
+                html += `<li><strong>Expresión oral:</strong> ${getNivelIngles("ingles2")}</li>`;
+                html += `<li><strong>Comprensión lectora:</strong> ${getNivelIngles("ingles3")}</li>`;
+                html += `<li><strong>Comprensión auditiva:</strong> ${getNivelIngles("ingles4")}</li>`;
+                html += `</ul><div class="section-title"> Motivación</div><ul>`;
+                html += `<li><strong>Razón para estudiar en INAOE:</strong> ${$("#razon").val() || "No especificada"}</li>`;
+                html += `</ul>`;
+                
+                $("#contenidoResumen").html(html);
+                $("#modalResumen").modal("show");
+            }
+
+            $("#confirmarEnvio").on("click", function() {
+                $("#modalResumen").modal("hide");
+                alert("Solicitud enviada con éxito. Pronto recibirás respuesta del INAOE.");
+
+                
+            });

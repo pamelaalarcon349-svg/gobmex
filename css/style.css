@@ -1,0 +1,36 @@
+*{
+    box-sizing:border-box;
+}
+
+html,
+body{
+    overflow-x:hidden;
+    max-width:100%;
+}
+
+.container{
+    width:98%;
+    max-width:1800px;
+    margin:0 auto;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+.navbar{
+    min-height:100px !important;
+    background-color:#611232 !important;
+}
+
+.mayus-auto{
+    text-transform:uppercase;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.row{
+    margin-left:0;
+    margin-right:0;
+}

@@ -1,0 +1,153 @@
+.table-responsive{
+    overflow-x:auto;
+    width:100%;
+}
+
+.table td,
+.table th{
+    padding:12px;
+    font-size:16px;
+}
+.input-icon{
+    position: relative;
+}
+
+.input-icon .fa-calendar{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.datepicker-group{
+    position:relative;
+}
+
+.datepicker-group label{
+    display:block;
+    margin-bottom:5px;
+}
+
+.datepicker-group .fa-calendar{
+    position:absolute !important;
+    right:15px !important;
+    bottom:15px !important;
+    top:auto !important;
+    left:auto !important;
+    transform:none !important;
+    font-size:18px !important;
+    color:#777 !important;
+    pointer-events:none !important;
+    z-index:10 !important;
+}
+
+.evaluacion-container .radio{
+    margin-bottom:8px;
+}
+
+.evaluacion-container label{
+    font-weight:normal;
+}
+
+@media (min-width:1600px){
+
+    .container{
+        width:96%;
+        max-width:1900px;
+    }
+
+    body{
+        font-size:20px;
+    }
+
+    .form-control{
+        min-height:55px;
+        font-size:19px;
+    }
+
+    .datepicker-group .fa-calendar{
+        bottom:18px !important;
+        right:18px !important;
+        font-size:20px !important;
+    }
+}
+
+@media (max-width:992px){
+
+    .container{
+        width:100%;
+        padding:15px;
+    }
+
+    .form-control{
+        min-height:48px;
+    }
+
+    .datepicker-group .fa-calendar{
+        bottom:14px !important;
+        right:14px !important;
+    }
+}
+
+@media (max-width:768px){
+
+    .container{
+        width:100%;
+        padding:12px;
+    }
+
+    body{
+        font-size:17px;
+    }
+
+    label,
+    p,
+    li,
+    .radio label{
+        font-size:17px;
+    }
+
+    .form-control{
+        font-size:17px;
+        min-height:48px;
+    }
+
+    .btn{
+        width:100%;
+        margin-top:10px;
+        font-size:18px;
+    }
+
+    .row > [class*="col-"]{
+        margin-bottom:12px;
+    }
+
+    input[type="radio"]{
+        transform:scale(1.3);
+        margin-right:8px;
+    }
+
+    .datepicker-group .fa-calendar{
+        bottom:14px !important;
+        right:14px !important;
+        font-size:16px !important;
+    }
+}
+
+@media (max-width:480px){
+
+    body{
+        font-size:16px;
+    }
+
+    .form-control{
+        font-size:16px;
+        min-height:46px;
+    }
+
+    label,
+    p,
+    li{
+        font-size:16px;
+    }
+}

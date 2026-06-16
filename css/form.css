@@ -1,0 +1,47 @@
+.form-control{
+    font-size:18px;
+    min-height:50px;
+}
+
+textarea.form-control{
+    min-height:120px;
+}
+
+.btn{
+    font-size:18px;
+    padding:12px 25px;
+}
+
+.table input,
+.table select{
+    width:100%;
+}
+
+.input-error{
+    border:1px solid #b91c1c !important;
+    background-color:#fff8f8;
+}
+
+.error-mensaje{
+    display:block;
+    min-height:22px;
+    margin-top:5px;
+    font-size:14px;
+    color:#b91c1c;
+}
+
+.deshabilitado-total{
+    pointer-events:none !important;
+    color:#999 !important;
+    text-decoration:none !important;
+    cursor:not-allowed !important;
+}
+
+.solo-numeros{
+    ime-mode:disabled;
+}
+
+input[type="text"].solo-numeros{
+    inputmode:numeric;
+    pattern:"\\d*";
+}

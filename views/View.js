@@ -19,13 +19,23 @@ class AdmisionView {
     }
 
     inicializarCalendario() {
+        const campoFecha = document.getElementById('fecha_nacimiento');
+        if (!campoFecha) return;
+
         if (window.jQuery && window.jQuery.fn.datepicker) {
             window.jQuery('#fecha_nacimiento').datepicker({
                 changeYear: true,
                 yearRange: '-100:+0',
                 dateFormat: 'dd/mm/yy'
             });
+            return;
         }
+
+        campoFecha.type = 'date';
+        campoFecha.removeAttribute('readonly');
+        campoFecha.addEventListener('click', () => {
+            if (campoFecha.showPicker) campoFecha.showPicker();
+        });
     }
 
     ocultarElementosIniciales() {

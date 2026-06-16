@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>INAOE - Solicitud de admisión</title>
+
+    <link rel="shortcut icon" href="https://framework-gb.cdn.gob.mx/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://framework-gb.cdn.gob.mx/assets/styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="models/ValidacionModel.js"></script>
+<script src="models/Model.js"></script>
+<script src="views/View.js"></script>
+<script src="controller/Controller.js"></script>
+
+    <style>                                  
+        * { box-sizing: border-box; }
+        .container { width: 98%; max-width: 1800px; margin: 0 auto; padding: 20px; }
+        .navbar { min-height: 100px !important; background-color: #611232 !important; }
+        .form-control { font-size: 18px; min-height: 50px; }
+        textarea.form-control { min-height: 120px; }
+        .btn { font-size: 18px; padding: 12px 25px; }
+        .datepicker-group { position: relative; }
+        .datepicker-group .fa-calendar {
+            position: absolute !important; right: 15px !important; bottom: 15px !important;
+            top: auto !important; left: auto !important; transform: none !important;
+            font-size: 18px !important; color: #777 !important; pointer-events: none !important; z-index: 10 !important;
+        }
+        @media (min-width: 1600px){ .datepicker-group .fa-calendar { bottom: 18px !important; right: 18px !important; font-size: 20px !important; } }
+        @media (max-width: 992px){ .datepicker-group .fa-calendar { bottom: 14px !important; right: 14px !important; } }
+        @media (max-width: 768px){ .datepicker-group .fa-calendar { bottom: 14px !important; right: 14px !important; font-size: 16px !important; } }
+        .datepicker-group label { display: block; margin-bottom: 5px; }
+        .table td, .table th { padding: 12px; font-size: 16px; }
+        img { max-width: 100%; height: auto; }
+        .table-responsive { overflow-x: auto; width: 100%; }
+        @media (min-width: 1600px){ .container{ width: 96%; max-width: 1900px; } body{ font-size: 20px; } .form-control { min-height: 55px; font-size: 19px; } }
+        @media (max-width: 992px){ .container{ width: 100%; padding: 15px; } .form-control{ min-height: 48px; } }
+        @media (max-width: 768px){
+            .container{ width: 100%; padding: 12px; } body{ font-size: 17px; }
+            label, p, li, .radio label{ font-size: 17px; } .form-control{ font-size: 17px; min-height: 48px; }
+            .btn{ width: 100%; margin-top: 10px; font-size: 18px; } .row > [class*="col-"]{ margin-bottom: 12px; }
+            input[type="radio"]{ transform: scale(1.3); margin-right: 8px; }
+        }
+        @media (max-width: 480px){ body{ font-size: 16px; } .form-control{ font-size: 16px; min-height: 46px; } label, p, li{ font-size: 16px; } }
+        .mayus-auto { text-transform: uppercase; }
+        html, body { overflow-x: hidden; max-width: 100%; }
+        .container { overflow-x: hidden; }
+        .row { margin-left: 0; margin-right: 0; }
+        .table input, .table select { width: 100%; }
+        .input-error { border: 1px solid #b91c1c !important; background-color: #fff8f8; }
+        .error-mensaje { display: block; margin-top: 5px; font-size: 14px; color: #b91c1c; }
+        .deshabilitado-total { pointer-events: none !important; color: #999 !important; text-decoration: none !important; cursor: not-allowed !important; }
+        .evaluacion-container .radio { margin-bottom: 8px; }
+        .evaluacion-container label { font-weight: normal; }
+        .solo-numeros { ime-mode: disabled; }
+        input[type="text"].solo-numeros { inputmode: numeric; pattern: "\\d*"; }
+    </style>
+</head>
+
+<body>
+    <main class="page">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="https://www.gob.mx/"><span class="icon-home" aria-hidden="true"></span></a></li>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li class="active">Inscripción a programas de Posgrado</li>
+            </ol>
+
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <h1>Solicitud de admisión a posgrados del INAOE</h1>
+                </div>
+            </div>
+
+            <div id="alertaExito" class="alert alert-success" style="display: none; margin-top: 15px;">
+                <strong>Registro exitoso</strong>, tu información está siendo procesada.
+            </div>
+
+            <div id="alertaError" class="alert alert-danger" style="display: none; margin-top: 15px;">
+                <strong>¡Error de registro!</strong> Has dejado campos obligatorios vacíos. Por favor verifica.
+            </div>
+
+            <form id="formAdmision" role="form">
+                <section id="Inicio"></section>
+
+                <h2>Datos generales del aspirante</h2>
+                <hr class="red">
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-8">
+                        <label>Nacionalidad:</label>
+                        <div class="radio">
+                            <label><input type="radio" name="nacionalidad" value="Mexicana" checked> Mexicana</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="nacionalidad" value="Otra (Extranjera)"> Otra (Extranjera)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-8">
+                        <label>Clave Única de Registro de Población (CURP)*:</label>
+                        <input type="text" class="form-control mayus-auto" id="curp" placeholder="INGRESA TU CURP">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+                <p>¿No sabes tu CURP? ingresa <a href="https://www.gob.mx/curp/" id="linkCurp">Aquí</a></p>
+                <hr>
+
+                <div class="row g-3">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Nombre(s)*:</label>
+                        <input type="text" class="form-control mayus-auto" id="nombre" placeholder="INGRESA TU NOMBRE">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Primer apellido*:</label>
+                        <input type="text" class="form-control mayus-auto" id="primerApellido" placeholder="INGRESA TU PRIMER APELLIDO">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Segundo apellido:</label>
+                        <input type="text" class="form-control mayus-auto" id="segundoApellido" placeholder="INGRESA TU SEGUNDO APELLIDO">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Sexo*:</label>
+                        <select class="form-control mayus-auto" id="sexo">
+                            <option value="" selected>SELECCIONA</option>
+                            <option>HOMBRE</option>
+                            <option>MUJER</option>
+                        </select>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    
+                    <div class="form-group col-12 col-md-4">
+                        <div class="form-group datepicker-group">
+                            <label for="fechaNacimiento">Fecha de nacimiento*:</label>
+                            <input type="text" class="form-control" id="fechaNacimiento" placeholder="FECHA DE NACIMIENTO">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <small class="text-danger error-mensaje"></small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-12 col-md-4">
+                        <label>Lugar de nacimiento*:</label>
+                        <input type="text" class="form-control mayus-auto" id="lugarNacimiento" placeholder="LUGAR DE NACIMIENTO">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="form-group col-6 col-md-3">
+                        <label>Lada*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="lada" placeholder="LADA" maxlength="10">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label>Teléfono fijo:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telFijo" placeholder="TELÉFONO FIJO" maxlength="15">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label>Ext.:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="ext" placeholder="EXT" maxlength="10">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <label>Teléfono móvil*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovil" placeholder="TELÉFONO MÓVIL" maxlength="15">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-12">
+                        <label>Correo electrónico*:</label>
+                        <input type="text" class="form-control" id="email" placeholder="ejemplo@dominio.com">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <h2>Domicilio</h2>
+                <hr class="red">
+
+                <div class="row g-3">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Código Postal*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="cp" placeholder="CÓDIGO POSTAL" maxlength="10">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Estado*:</label>
+                        <input type="text" class="form-control mayus-auto" id="estado" placeholder="ESTADO">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Municipio o Alcaldía*:</label>
+                        <input type="text" class="form-control mayus-auto" id="municipio" placeholder="MUNICIPIO O ALCALDÍA">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Localidad*:</label>
+                        <input type="text" class="form-control mayus-auto" id="localidad" placeholder="LOCALIDAD">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Colonia*:</label>
+                        <input type="text" class="form-control mayus-auto" id="colonia" placeholder="COLONIA">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Tipo de calle*:</label>
+                        <input type="text" class="form-control mayus-auto" id="tipoCalle" placeholder="TIPO DE CALLE">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Calle*:</label>
+                        <input type="text" class="form-control mayus-auto" id="calle" placeholder="CALLE">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Número exterior*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="numExt" placeholder="NÚMERO EXTERIOR" maxlength="10">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="form-group col-12 col-md-4">
+                        <label>Número interior:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="numInt" placeholder="NÚMERO INTERIOR" maxlength="10">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
+                        <label>País*:</label>
+                        <input type="text" class="form-control mayus-auto" id="pais" placeholder="PAÍS">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <h2>Contacto de emergencia</h2>
+                <p>(será el contacto de emergencia en caso de que algo suceda con el aspirante)</p>
+                <hr class="red">
+
+                <div class="row g-3">
+                       
+                     <div class="form-group col-12 col-md-4">
+                        <label>Nombre(s)*:</label>
+                        <input type="text" class="form-control mayus-auto" id="nombreEmergencia" placeholder="Nombre(s)"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                       <div class="form-group col-12 col-md-4">
+                        <label>Apellido Paterno*:</label>
+                        <input type="text" class="form-control mayus-auto" id="primerApellidoEmergencia*:" placeholder="Apellido Paterno"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                       <div class="form-group col-12 col-md-4">
+                        <label>Apellido Materno*:</label>
+                        <input type="text" class="form-control mayus-auto" id="segundoApellidoEmergencia*:" placeholder="Apellido Materno"required>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <label>Lada*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="ladaEmergencia" placeholder="LADA" required maxlength="10" inputmode="numeric" pattern="\d*">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-4 form-group">
+                        <label>Teléfono fijo*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telFijoEmergencia" placeholder="TELÉFONO FIJO" required maxlength="15" inputmode="numeric" pattern="\d*">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-4 form-group">
+                        <label>Ext.:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="extEmergencia" placeholder="EXT" maxlength="10" inputmode="numeric" pattern="\d*">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                    <div class="col-6 col-md-4 form-group">
+                        <label>Teléfono móvil*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="telMovilEmergencia" placeholder="TELÉFONO MÓVIL" required maxlength="15" inputmode="numeric" pattern="\d*">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Parentesco*:</label>
+                        <input type="text" class="form-control mayus-auto" id="parentesco" placeholder="PARENTESCO">
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <h2>Datos académicos del aspirante</h2>
+                <hr class="red">
+                <div class="row">
+                    <div class="form-group col-12 col-md-8">
+                        <label>Posgrado a ingresar*:</label>
+                        <div class="radio">
+                            <label><input type="radio" name="posgrado" id="posgrado1" value="Maestría" /> Maestría</label>
+                            <div class="form-group" id="maestrias" style="margin-top: 10px; margin-left: 20px; display: none;">
+                                <select class="form-control mayus-auto" id="maestriaSelect">
+                                    <option disabled selected>SELECCIONA</option>
+                                    <option value="Ciencias en la Especialidad de Astrofísica">CIENCIAS EN LA ESPECIALIDAD DE ASTROFÍSICA</option>
+                                    <option value="Ciencias en la Especialidad de Óptica">CIENCIAS EN LA ESPECIALIDAD DE ÓPTICA</option>
+                                    <option value="Ciencias en la Especialidad de Electrónica">CIENCIAS EN LA ESPECIALIDAD DE ELECTRÓNICA</option>
+                                    <option value="Ciencias en el Área de Ciencias Computacionales">CIENCIAS EN EL ÁREA DE CIENCIAS COMPUTACIONALES</option>
+                                    <option value="Ciencias en el Área de Ciencia y Tecnología del Espacio">CIENCIAS EN EL ÁREA DE CIENCIA Y TECNOLOGÍA DEL ESPACIO</option>
+                                    <option value="Ciencias y Tecnologías Biomédicas">CIENCIAS Y TECNOLOGÍAS BIOMÉDICAS</option>
+                                    <option value="Ciencias y Tecnologías de Seguridad">CIENCIAS Y TECNOLOGÍAS DE SEGURIDAD</option>
+                                    <option value="Enseñanza de Ciencias Exactas">ENSEÑANZA DE CIENCIAS EXACTAS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="posgrado" id="posgrado2" value="Doctorado" /> Doctorado</label>
+                            <div class="form-group" id="doctorados" style="margin-top: 10px; margin-left: 20px; display: none;">
+                                <select class="form-control mayus-auto" id="doctoradoSelect">
+                                    <option disabled selected>SELECCIONA</option>
+                                    <option value="Ciencias en la Especialidad de Astrofísica">CIENCIAS EN LA ESPECIALIDAD DE ASTROFÍSICA</option>
+                                    <option value="Ciencias en la Especialidad de Óptica">CIENCIAS EN LA ESPECIALIDAD DE ÓPTICA</option>
+                                    <option value="Ciencias en la Especialidad de Electrónica">CIENCIAS EN LA ESPECIALIDAD DE ELECTRÓNICA</option>
+                                    <option value="Ciencias en el Área de Ciencias Computacionales">CIENCIAS EN EL ÁREA DE CIENCIAS COMPUTACIONALES</option>
+                                    <option value="Ciencias en el Área de Ciencia y Tecnología del Espacio">CIENCIAS EN EL ÁREA DE CIENCIA Y TECNOLOGÍA DEL ESPACIO</option>
+                                    <option value="Ciencias y Tecnologías Biomédicas">CIENCIAS Y TECNOLOGÍAS BIOMÉDICAS</option>
+                                    <option value="Ciencias y Tecnologías de Seguridad">CIENCIAS Y TECNOLOGÍAS DE SEGURIDAD</option>
+                                    <option value="Enseñanza de Ciencias Exactas">ENSEÑANZA DE CIENCIAS EXACTAS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <small class="text-danger error-mensaje"></small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="form-group col-12 col-md-4">
+                        <label>Año de ingreso al posgrado*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioIngreso" placeholder="AÑO DE INGRESO" maxlength="4">
+                    </div>
+                    <div class="form-group col-12 col-md-8" id="periodoContainer">
+                        <label>Periodo de ingreso al posgrado*:</label>
+                        <div id="opcionesPeriodo"></div>
+                        <small class="text-danger error-mensaje" id="errorPeriodo"></small>
+                    </div>
+                </div>
+
+                <div id="evaluacionContainer" style="display: none;">
+                    <div class="row g-3">
+                        <div class="form-group col-12 col-md-8">
+                            <label>Forma de Evaluación de Ingreso:</label>
+                            <div class="evaluacion-container">
+                                <div class="radio"><label><input type="radio" name="formaEvaluacion" value="Exámen de Admisión en Mayo"> Exámen de Admisión en Mayo</label></div>
+                                <div class="radio"><label><input type="radio" name="formaEvaluacion" value="Exámen de Admisión en Julio"> Exámen de Admisión en Julio</label></div>
+                                <div class="radio"><label><input type="radio" name="formaEvaluacion" value="Cursos Propedéuticos de Mayo a Julio"> Cursos Propedéuticos de Mayo a Julio</label></div>
+                                <div class="radio"><label><input type="radio" name="formaEvaluacion" value="Ingreso por Desempeño Académico"> Ingreso por Desempeño Académico</label></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Datos de estudio previos</h3>
+                <hr class="red">
+                <div class="row">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Nombre de la institución educativa*:</label>
+                        <input type="text" class="form-control mayus-auto" id="institucion" placeholder="NOMBRE DE LA INSTITUCIÓN">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Nombre del grado académico que obtuviste*:</label>
+                        <input type="text" class="form-control mayus-auto" id="gradoAcademico" placeholder="GRADO ACADÉMICO">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Año de obtención del grado*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="anioGrado" placeholder="AÑO DE OBTENCIÓN" maxlength="4">
+                    </div>
+                    <div class="form-group col-12 col-md-6">
+                        <label>Promedio obtenido*:</label>
+                        <input type="text" class="form-control mayus-auto solo-numeros" id="promedio" placeholder="PROMEDIO" maxlength="5">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-12 col-md-6">
+                        <label>Selecciona tu tipo de titulación*:</label>
+                        <div class="radio"><label><input type="radio" name="titulacion" value="Tesis"> TESIS</label></div>
+                        <div class="radio"><label><input type="radio" name="titulacion" value="Estudios de Maestría"> ESTUDIOS DE MAESTRÍA</label></div>
+                        <div class="radio"><label><input type="radio" name="titulacion" value="Otro"> OTRO</label></div>
+                        
+                        <div id="especificarTitulacionContainer" style="display: none; margin-top: 15px; margin-left: 20px;">
+                            <label>Especificar*:</label>
+                            <input type="text" class="form-control mayus-auto" id="especificarTitulacion">
+                            <small class="text-danger error-mensaje"></small>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Dominio del idioma inglés</h2>
+                <hr class="red">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr><th>HABILIDAD</th><th>NIVEL BÁSICO</th><th>NIVEL INTERMEDIO</th><th>NIVEL AVANZADO</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>EXPRESIÓN ESCRITA</td><td><input type="radio" name="ingles.ingles1" value="básico"></td><td><input type="radio" name="ingles.ingles1" value="intermedio"></td><td><input type="radio" name="ingles.ingles1" value="avanzado"></td></tr>
+                            <tr><td>EXPRESIÓN ORAL</td><td><input type="radio" name="ingles.ingles2" value="básico"></td><td><input type="radio" name="ingles.ingles2" value="intermedio"></td><td><input type="radio" name="ingles.ingles2" value="avanzado"></td></tr>
+                            <tr><td>COMPRENSIÓN LECTORA</td><td><input type="radio" name="ingles.ingles3" value="básico"></td><td><input type="radio" name="ingles.ingles3" value="intermedio"></td><td><input type="radio" name="ingles.ingles3" value="avanzado"></td></tr>
+                            <tr><td>COMPRENSIÓN AUDITIVA</td><td><input type="radio" name="ingles.ingles4" value="básico"></td><td><input type="radio" name="ingles.ingles4" value="intermedio"></td><td><input type="radio" name="ingles.ingles4" value="avanzado"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Experiencia laboral</h2>
+                <hr class="red">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead><tr><th>INSTITUCIÓN O EMPRESA</th><th>TIPO DE EXPERIENCIA</th><th>PUESTO Y FUNCIONES</th><th>TIEMPO LABORADO</th></tr></thead>
+                        <tbody>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
+                            <tr><td><input type="text" class="form-control mayus-auto" placeholder="INSTITUCIÓN"></td><td><select class="form-control mayus-auto"><option selected>SELECCIONA</option><option>PROFESIONAL</option><option>DOCENTE</option><option>OTRO</option></select></td><td><input type="text" class="form-control mayus-auto" placeholder="PUESTO"></td><td><input type="text" class="form-control mayus-auto" placeholder="TIEMPO"></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Publicaciones científicas</h2>
+                <hr class="red">
+                <div class="row g-3"><div class="col-12 col-md-4"><div class="form-group"><label>TÍTULO:</label><input type="text" class="form-control mayus-auto" placeholder="TÍTULO"></div></div><div class="col-12 col-md-8"><div class="form-group"><label>DESCRIPCIÓN:</label><textarea rows="1" class="form-control mayus-auto" placeholder="DESCRIPCIÓN"></textarea></div></div></div>
+                <div class="row g-3"><div class="col-12 col-md-4"><div class="form-group"><label>TÍTULO:</label><input type="text" class="form-control mayus-auto" placeholder="TÍTULO"></div></div><div class="col-12 col-md-8"><div class="form-group"><label>DESCRIPCIÓN:</label><textarea rows="1" class="form-control mayus-auto" placeholder="DESCRIPCIÓN"></textarea></div></div></div>
+                <div class="row g-3"><div class="col-12 col-md-4"><div class="form-group"><label>TÍTULO:</label><input type="text" class="form-control mayus-auto" placeholder="TÍTULO"></div></div><div class="col-12 col-md-8"><div class="form-group"><label>DESCRIPCIÓN:</label><textarea rows="1" class="form-control mayus-auto" placeholder="DESCRIPCIÓN"></textarea></div></div></div>
+
+               <div class="row align-items-center">
+                    <div class="col-12 col-md-4"><small>*Campos obligatorios</small></div>
+                    <div class="col-12 col-md-8 form-group">
+                        <button type="button" class="btn btn-primary pull-right" id="btnEnviarModal">Enviar solicitud</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://framework-gb.cdn.gob.mx/gobmx.js"></script>
+    <script src="https://framework-gb.cdn.gob.mx/assets/scripts/jquery-ui-datepicker.js"></script>
+    <script src="Model.js"></script>
+    <script src="View.js"></script>
+    <script src="Controller.js"></script>
+</body>
+</html>
